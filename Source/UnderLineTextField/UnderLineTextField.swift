@@ -182,7 +182,7 @@ open class UnderLineTextField: UITextField {
         return layer
     }()
     /// label for displaying error
-    private(set) lazy var errorLabel: UIAnimatableLabel = {
+    private(set) open lazy var errorLabel: UIAnimatableLabel = {
         let label = UIAnimatableLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.animationDuration = animationDuration

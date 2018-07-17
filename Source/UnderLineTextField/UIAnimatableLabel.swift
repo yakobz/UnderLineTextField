@@ -50,8 +50,8 @@ public class UIAnimatableLabel: UIView {
     private var widthConstraint: NSLayoutConstraint!
     private var heightConstraint: NSLayoutConstraint!
     var animationDuration: Double = 0.4
-
-    var font: UIFont! {
+    
+    open var font: UIFont! {
         set {
             textFont = newValue
             let fontName = newValue.fontName as NSString
