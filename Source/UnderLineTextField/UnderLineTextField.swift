@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 
 /// Simple UITextfield Subclass with state
-@IBDesignable
+
 open class UnderLineTextField: UITextField {
     private var isLayoutCalled = false
     //============
@@ -182,7 +182,7 @@ open class UnderLineTextField: UITextField {
         return layer
     }()
     /// label for displaying error
-    private lazy var errorLabel: UIAnimatableLabel = {
+    private(set) lazy var errorLabel: UIAnimatableLabel = {
         let label = UIAnimatableLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.animationDuration = animationDuration
@@ -238,14 +238,11 @@ open class UnderLineTextField: UITextField {
         return label
     }()
 
-    //===================
-    // MARK: IBInspectable
-    //===================
     //==================
     // MARK: Active State
     //==================
     /// line width when textfield is focused
-    @IBInspectable open var activeLineWidth: CGFloat = 1 {
+    open var activeLineWidth: CGFloat = 1 {
         didSet {
             if oldValue != activeLineWidth {
                 setNeedsDisplay()
@@ -253,7 +250,7 @@ open class UnderLineTextField: UITextField {
         }
     }
     /// placeholder color when textfield is focused
-    @IBInspectable open var activePlaceholderTextColor: UIColor = .lightGray {
+    open var activePlaceholderTextColor: UIColor = .lightGray {
         didSet {
             if oldValue != activePlaceholderTextColor {
                 setNeedsDisplay()
@@ -261,7 +258,7 @@ open class UnderLineTextField: UITextField {
         }
     }
     /// line color when textfield is focused
-    @IBInspectable open var activeLineColor: UIColor = .darkText {
+    open var activeLineColor: UIColor = .darkText {
         didSet {
             if oldValue != activeLineColor {
                 setNeedsDisplay()
@@ -273,7 +270,7 @@ open class UnderLineTextField: UITextField {
     // MARK: Inactive Satuts
     //====================
     /// line width when textfield is not focused
-    @IBInspectable open var inactiveLineWidth: CGFloat = 1 {
+    open var inactiveLineWidth: CGFloat = 1 {
         didSet {
             if oldValue != inactiveLineWidth {
                 setNeedsDisplay()
@@ -281,7 +278,7 @@ open class UnderLineTextField: UITextField {
         }
     }
     /// placeholder color when textfield is not focused
-    @IBInspectable open var inactivePlaceholderTextColor: UIColor = .darkText {
+    open var inactivePlaceholderTextColor: UIColor = .darkText {
         didSet {
             if oldValue != inactivePlaceholderTextColor {
                 setNeedsDisplay()
@@ -289,7 +286,7 @@ open class UnderLineTextField: UITextField {
         }
     }
     /// line color when textfield is not focused
-    @IBInspectable open var inactiveLineColor: UIColor = .lightGray {
+    open var inactiveLineColor: UIColor = .lightGray {
         didSet {
             if oldValue != inactiveLineColor {
                 setNeedsDisplay()
@@ -301,7 +298,7 @@ open class UnderLineTextField: UITextField {
     // MARK: Warning Status
     //====================
     /// line width when textfield have warning
-    @IBInspectable open var warningLineWidth: CGFloat = 1 {
+    open var warningLineWidth: CGFloat = 1 {
         didSet {
             if oldValue != warningLineWidth {
                 setNeedsDisplay()
@@ -309,7 +306,7 @@ open class UnderLineTextField: UITextField {
         }
     }
     /// placeholder color when textfield have warning
-    @IBInspectable open var warningPlaceholderColor: UIColor = UIColor.yellow {
+    open var warningPlaceholderColor: UIColor = UIColor.yellow {
         didSet {
             if oldValue != warningPlaceholderColor {
                 setNeedsDisplay()
@@ -317,7 +314,7 @@ open class UnderLineTextField: UITextField {
         }
     }
     /// warrning label color when textfield have warning
-    @IBInspectable open var warningTextColor: UIColor = UIColor.yellow {
+    open var warningTextColor: UIColor = UIColor.yellow {
         didSet {
             if oldValue != warningTextColor {
                 setNeedsDisplay()
@@ -325,7 +322,7 @@ open class UnderLineTextField: UITextField {
         }
     }
     /// line color when textfield have warning
-    @IBInspectable open var warningLineColor: UIColor = UIColor.yellow {
+    open var warningLineColor: UIColor = UIColor.yellow {
         didSet {
             if oldValue != warningLineColor {
                 errorLabel.textColor = errorLineColor
@@ -338,7 +335,7 @@ open class UnderLineTextField: UITextField {
     // MARK: Error Status
     //==================
     /// line width when textfield have error
-    @IBInspectable open var errorLineWidth: CGFloat = 1 {
+    open var errorLineWidth: CGFloat = 1 {
         didSet {
             if oldValue != errorLineWidth {
                 setNeedsDisplay()
@@ -346,7 +343,7 @@ open class UnderLineTextField: UITextField {
         }
     }
     /// placeholder color when textfield have error
-    @IBInspectable open var errorPlaceholderColor: UIColor = UIColor.red {
+    open var errorPlaceholderColor: UIColor = UIColor.red {
         didSet {
             if oldValue != errorPlaceholderColor {
                 setNeedsDisplay()
@@ -354,7 +351,7 @@ open class UnderLineTextField: UITextField {
         }
     }
     /// error label color when textfield have warning
-    @IBInspectable open var errorTextColor: UIColor = UIColor.yellow {
+    open var errorTextColor: UIColor = UIColor.yellow {
         didSet {
             if oldValue != warningTextColor {
                 setNeedsDisplay()
@@ -362,7 +359,7 @@ open class UnderLineTextField: UITextField {
         }
     }
     /// line color when textfield have error
-    @IBInspectable open var errorLineColor: UIColor = UIColor.red {
+    open var errorLineColor: UIColor = UIColor.red {
         didSet {
             if oldValue != errorLineColor {
                 errorLabel.textColor = errorLineColor
